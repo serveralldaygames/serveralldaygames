@@ -1,3 +1,8 @@
+<?php
+require_once("./system/system.class.php");
+session_start();
+$system = new System();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +19,69 @@
     <script src="./assets/js/jquery.js"></script>
 </head>
 <body>
+    <?php
+    if (isset($_GET['page'])) {
+        try {
+            require_once "./pages/" . $_GET['page'] . ".php";
+        } catch (\Throwable $th) {
+            require_once "./pages/404.php";
+        }
+    } else {
+        require_once "./pages/home.php";
+    }
+
+    if (isset($_GET['page']) && $_GET['page'] == "login") {
+        require_once('./pages/login.php');
+    }
+    if (isset($_GET['page']) && $_GET['page'] == "additional") {
+        require_once('./pages/additional.php');
+    }
+    if (isset($_GET['page']) && $_GET['page'] == "register") {
+        require_once('./pages/register.php');
+    }
+    if (isset($_GET['page']) && $_GET['page'] == "paymet") {
+        require_once('./pages/paymet.php');
+    }
+    if (isset($_GET['page']) && $_GET['page'] == "logout") {
+        require_once('./pages/logout.php');
+    }
+    if (isset($_GET['page']) && $_GET['page'] == "shop") {
+        require_once('./pages/shop.php');
+    }
+    if (isset($_GET['page']) && $_GET['page'] == "editpassword") {
+        require_once('./pages/editpassword.php');
+    }
+    if (isset($_GET['page']) && $_GET['page'] == "adminhome") {
+        require_once('./pages/adminhome.php');
+    }
+    if (isset($_GET['page']) && $_GET['page'] == "download") {
+        require_once('./pages/download.php');
+    }
+    if (isset($_GET['page']) && $_GET['page'] == "addstock") {
+        require_once('./pages/Stock/addstock.php');
+    }
+    if (isset($_GET['page']) && $_GET['page'] == "delestock") {
+        require_once('./pages/delestock.php');
+    }
+    if (isset($_GET['page']) && $_GET['page'] == "editstock") {
+        require_once('./pages/editstock.php');
+    }
+    if (isset($_GET['page']) && $_GET['page'] == "setuplogin") {
+        require_once('./pages/setuplogin.php');
+    }
+    if (isset($_GET['page']) && $_GET['page'] == "profile"){
+        require_once("./pages/profile.php");
+    }
+    if (isset($_GET['page']) && $_GET['page'] == "email"){
+        require_once("./pages/email.php");
+    }
+    if (isset($_GET['page']) && $_GET['page'] == "phone"){
+        require_once("./pages/phone.php");
+    }
+    if (isset($_GET['page']) && $_GET['page'] == "movedata") {
+        require_once('./pages/movedata.php');
+    }
+    ?>
     <footer>
         <div class="allday-footer-logos">
             <div class="allday-footer-logo"></div>
