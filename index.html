@@ -14,7 +14,160 @@
 </head>
 <body style="background-image: url('./assets/img/back2.jpg'); background-size: cover; background-position: center; margin: 0; backdrop-filter: blur(50px);">
  <header>
-    <?php include "./nav/nav.php"; ?>
+   <nav class="fixed top w-full allday-nav border-gray-200">
+        <div class="mx-auto flex justify-between items-center py-3 md:px-5">
+            <a href="/" class="text-white text-2xl font-bold px-3">ALLDAY<span class="text-purple-500"> GAMES</span></a>
+    
+            <div class="md:hidden">
+                <button id="menuBtn" class="text-white focus:outline-none pt-2 px-3">
+                    <i class="fi fi-rr-bars-staggered text-2xl"></i>
+                </button>
+            </div>
+    
+            <ul class="hidden md:flex space-x-5 relative">
+            <li>
+                    <a href="/" class="text-white hover:text-purple-500 flex items-center">
+                        <i class="fi fi-rr-house-chimney-blank mt-4 mr-2 text-2xl"></i>
+                        <div>
+                            <span class="text-sm mt-2 font-bold block">Home</span>
+                            <span class="text-xs block">หน้าหลัก</span>
+                        </div>
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="/?page=download" class="text-white hover:text-purple-500 flex items-center">
+                        <i class="fi fi-rr-down-to-line mt-4 mr-2 text-2xl"></i>
+                        <div>
+                            <span class="text-sm mt-2 font-bold block">Download</span>
+                            <span class="text-xs block">ดาวน์โหลด</span>
+                        </div>
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="/?page=shop" class="text-white hover:text-purple-500 flex items-center">
+                        <i class="fi fi-rr-shop mt-4 mr-2 text-2xl"></i>
+                        <div>
+                            <span class="text-sm mt-2 font-bold block">Shop</span>
+                            <span class="text-xs block">ร้านค้า</span>
+                        </div>
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="/?page=paymet" class="text-white hover:text-purple-500 flex items-center">
+                        <i class="fi fi-rr-wallet mt-4 mr-2 text-2xl"></i>
+                        <div>
+                            <span class="text-sm mt-2 font-bold block">Topup</span>
+                            <span class="text-xs block">เติมเงิน</span>
+                        </div>
+                    </a>
+                </li>
+    
+                <li class="mt-4">
+                    <span class="text-white text-xl">
+                        <i class="fi fi-rr-menu-dots-vertical"></i>
+                    </span>
+                </li>
+
+                <li>
+                    <a href="/?page=paymet" class="text-white hover:text-purple-500 flex items-center">
+                        <i class="fi fi-rr-wallet mt-4 mr-2 text-2xl"></i>
+                        <div>
+                            <span class="text-sm mt-2 font-bold block">Login</span>
+                            <span class="text-xs block">ลงชื่อเข้าใช้</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="relatives">
+                    <button id="userDataBtn" class="text-white hover:text-purple-500 flex items-center">
+                        <i class="fi fi-rr-circle-user mt-2 mr-2 text-2xl"></i>
+                        <div>
+<!--                             <span class="text-sm font-bold block"><?php echo $_SESSION['username']; ?></span>
+                            <span class="text-xs block">พ้อยในตัว : <?php echo $_SESSION['point']; ?></span> -->
+                        </div>
+                    </button>
+                    <div id="userDataDropdown" class="hidden absolute right-0 mt-5 menu border rounded-md shadow-md z-10">
+                      <a href="/?page=setuplogin" class="block px-4 text-gray-800 hover:text-purple-600"><i class="fi fi-rr-settings items-center"></i> เมนูควบคุมผู้ใช้งาน</a>
+                      <a href="/?page=profile" class="block px-4 text-gray-800 hover:text-purple-600"><i class="fi fi-rr-user-pen items-center"></i> จัดการตัวละคร</a>
+                      <a href="/?page=logout" class="block px-4 text-gray-800 hover:text-purple-600"><i class="fi fi-rr-sign-out-alt items-center"></i> ออกจากระบบ</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    
+        <div id="mobileMenu" class="md:hidden hidden allday-nav">
+        <ul class="py-2 px-4 space-y-2">
+                <li>
+                    <a href="/" class="text-white hover:text-purple-600 flex items-center">
+                        <i class="fi fi-rr-house-chimney-blank mt-3 mr-2 text-2xl"></i>
+                        <div>
+                            <span class="text-md font-bold block">Home</span>
+                            <span class="text-xs block">หน้าหลัก</span>
+                        </div>
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="/?page=download" class="text-white hover:text-purple-500 flex items-center">
+                        <i class="fi fi-rr-down-to-line mt-2 mr-2 text-2xl"></i>
+                        <div>
+                            <span class="text-sm font-bold block">Download</span>
+                            <span class="text-xs block">ดาวน์โหลด</span>
+                        </div>
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="/?page=shop" class="text-white hover:text-purple-600 flex items-center">
+                        <i class="fi fi-rr-shop mt-3 mr-2 text-2xl"></i>
+                        <div>
+                            <span class="text-md font-bold block">Shop</span>
+                            <span class="text-xs block">ร้านค้า</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/?page=paymet" class="text-white hover:text-purple-600 flex items-center">
+                        <i class="fi fi-rr-wallet mt-3 mr-2 text-2xl"></i>
+                        <div>
+                            <span class="text-md font-bold block">Topup</span>
+                            <span class="text-xs block">เติมเงิน</span>
+                        </div>
+                    </a>
+                </li>
+                <?php if (!isset($_SESSION['username'])) { ?>
+                    <li>
+                        <div class="logina">
+                            <a href="/?page=login" class="text-white flex items-center">ลงชื่อเข้าใช้</a>
+                        </div>
+                    </li>
+                    <?php } else {
+                    $userRank = $_SESSION['Group'];
+                    $isAdmin = ($userRank == 'admin' || $userRank == 'superadmin' || $userRank == 'DEVELOPER'); ?>
+                    <li class="relativemo">
+                    <button id="userDataMobileBtn" class="text-white hover:text-purple-600 flex items-center">
+                        <i class="fi fi-rr-circle-user mt-2 mr-2 text-2xl"></i>
+                        <div>
+                        <span class="text-sm font-bold block"><?php echo $_SESSION['username']; ?></span>
+                            <span class="text-xs block">พ้อยในตัว : <?php echo $_SESSION['point']; ?></span>
+                        </div>
+                    </button>
+                    <div id="userDataMobileDropdown" class="hidden absolute right-0 mt-2 bg-white border menus rounded-md shadow-md z-10">
+                    <?php if ($isAdmin) {?>
+                        <a href="/?page=adminhome" class="block px-4 py-1 text-gray-800 hover:text-purple-600"><i class="fi fi-rr-badge-percent items-center"></i> เมนูหลังบ้าน</a>
+                        <?php }?>
+                      <a href="/?page=conframuser" class="block px-4 text-gray-800 hover:text-purple-600"><i class="fi fi-rr-user-pen items-center"></i> ยืนยันตัวตน</a>
+                      <a href="/?page=setuplogin" class="block px-4 text-gray-800 hover:text-purple-600"><i class="fi fi-rr-settings items-center"></i> เมนูควบคุมผู้ใช้งาน</a>
+                      <a href="/?page=profile" class="block px-4 text-gray-800 hover:text-purple-600"><i class="fi fi-rr-user-pen items-center"></i> จัดการตัวละคร</a>
+                      <a href="/?page=logout" class="block px-4 text-gray-800 hover:text-purple-600"><i class="fi fi-rr-sign-out-alt items-center"></i> ออกจากระบบ</a>
+                    </div>
+                </li>
+                <?php } ?>
+            </ul>
+        </div>
+    </nav>
     </header>
     <section class = "flex min-h-screen">
     <div class="my-auto text-center mx-auto">
@@ -51,6 +204,35 @@
                 });
             });
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        var userDataBtn = document.getElementById('userDataBtn');
+        var userDataDropdown = document.getElementById('userDataDropdown');
+        userDataBtn.addEventListener('click', function () {
+            userDataDropdown.classList.toggle('hidden');
+        });
+
+        var userDataMobileBtn = document.getElementById('userDataMobileBtn');
+        var userDataMobileDropdown = document.getElementById('userDataMobileDropdown');
+
+        userDataMobileBtn.addEventListener('click', function () {
+            userDataMobileDropdown.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!userDataMobileBtn.contains(event.target) && !userDataMobileDropdown.contains(event.target)) {
+                userDataMobileDropdown.classList.add('hidden');
+            }
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!userDataBtn.contains(event.target) && !userDataDropdown.contains(event.target)) {
+                userDataDropdown.classList.add('hidden');
+            }
+        });
+    });
+</script>
     <script type="text/javascript">
         (function(e,t,o,n,p,r,i){e.visitorGlobalObjectAlias=n;e[e.visitorGlobalObjectAlias]=e[e.visitorGlobalObjectAlias]||function(){(e[e.visitorGlobalObjectAlias].q=e[e.visitorGlobalObjectAlias].q||[]).push(arguments)};e[e.visitorGlobalObjectAlias].l=(new Date).getTime();r=t.createElement("script");r.src=o;r.async=true;i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)})(window,document,"https://diffuser-cdn.app-us1.com/diffuser/diffuser.js","vgo");
         vgo('setAccount', '478502167');
